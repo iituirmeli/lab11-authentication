@@ -1,11 +1,13 @@
 # Lab 11 - Authentication
 
+testing
+
 ## Registered Users
 
 Here you can find a list of the users already registered inside the provided database.
 
-|         email         |   name   | plain-text password |
-|-----------------------|----------|---------------------|
+| email                 | name     | plain-text password |
+| --------------------- | -------- | ------------------- |
 | john.doe@polito.it    | John     | password            |
 | mario.rossi@polito.it | Mario    | password            |
 | testuser@polito.it    | Testuser | password            |
@@ -14,24 +16,24 @@ Here you can find a list of the users already registered inside the provided dat
 
 Provide a short description for API with the required parameters, follow the proposed structure.
 
-* [HTTP Method] [URL, with any parameter]
-* [One-line about what this API is doing]
-* [Sample request, with body (if any)]
-* [Sample response, with body (if any)]
-* [Error responses, if any]
+- [HTTP Method] [URL, with any parameter]
+- [One-line about what this API is doing]
+- [Sample request, with body (if any)]
+- [Sample response, with body (if any)]
+- [Error responses, if any]
 
 ### Film Management
 
 #### Get all films
 
-* HTTP method: `GET`  URL: `/api/films`
-* Description: Get the full list of films or the films that match the query filter parameter
-* Request body: _None_
-* Request query parameter: _filter_ name of the filter to apply (filter-all, filter-favorite, filter-best, filter-lastmonth, filter-unseen)
-* Response: `200 OK` (success)
-* Response body: Array of objects, each describing one film:
+- HTTP method: `GET` URL: `/api/films`
+- Description: Get the full list of films or the films that match the query filter parameter
+- Request body: _None_
+- Request query parameter: _filter_ name of the filter to apply (filter-all, filter-favorite, filter-best, filter-lastmonth, filter-unseen)
+- Response: `200 OK` (success)
+- Response body: Array of objects, each describing one film:
 
-``` json
+```json
 [
   {
     "id": 1,
@@ -53,17 +55,17 @@ Provide a short description for API with the required parameters, follow the pro
 ]
 ```
 
-* Error responses:  `500 Internal Server Error` (generic error)
+- Error responses: `500 Internal Server Error` (generic error)
 
 #### Get film by id
 
-* HTTP method: `GET`  URL: `/api/films/:id`
-* Description: Get the film corresponding to the id
-* Request body: _None_
-* Response: `200 OK` (success)
-* Response body: One object describing the required film:
+- HTTP method: `GET` URL: `/api/films/:id`
+- Description: Get the film corresponding to the id
+- Request body: _None_
+- Response: `200 OK` (success)
+- Response body: One object describing the required film:
 
-``` JSON
+```JSON
 [
   {
     "id": 2,
@@ -76,15 +78,15 @@ Provide a short description for API with the required parameters, follow the pro
 ]
 ```
 
-* Error responses:  `500 Internal Server Error` (generic error), `404 Not Found` (not present or unavailable)
+- Error responses: `500 Internal Server Error` (generic error), `404 Not Found` (not present or unavailable)
 
 #### Add a new film
 
-* HTTP method: `POST`  URL: `/api/films`
-* Description: Add a new film to the films of user 1
-* Request body: description of the object to add (user property, if present, is ignored and substituted with the value 1, film id value is not required and is ignored)
+- HTTP method: `POST` URL: `/api/films`
+- Description: Add a new film to the films of user 1
+- Request body: description of the object to add (user property, if present, is ignored and substituted with the value 1, film id value is not required and is ignored)
 
-``` JSON
+```JSON
 {
     "id": 2,
     "title": "21 Grams",
@@ -95,18 +97,18 @@ Provide a short description for API with the required parameters, follow the pro
 }
 ```
 
-* Response: `200 OK` (success)
-* Response body: the object as represented in the database
+- Response: `200 OK` (success)
+- Response body: the object as represented in the database
 
-* Error responses: `503 Service Unavailable` (database error)
+- Error responses: `503 Service Unavailable` (database error)
 
 #### Update an existing film
 
-* HTTP method: `PUT`  URL: `/api/films/:id`
-* Description: Update values of an existing film, except the id (user property, if present, is ignored and substituted with the value 1)
-* Request body: description of the object to update
+- HTTP method: `PUT` URL: `/api/films/:id`
+- Description: Update values of an existing film, except the id (user property, if present, is ignored and substituted with the value 1)
+- Request body: description of the object to update
 
-``` JSON
+```JSON
 {
     "id": 2,
     "title": "The Matrix",
@@ -117,112 +119,112 @@ Provide a short description for API with the required parameters, follow the pro
 }
 ```
 
-* Response: `200 OK` (success)
-* Response body: the object as represented in the database
+- Response: `200 OK` (success)
+- Response body: the object as represented in the database
 
-* Error responses: `503 Service Unavailable` (database error)
+- Error responses: `503 Service Unavailable` (database error)
 
 #### Delete an existing film
 
-* HTTP method: `DELETE`  URL: `/api/films/:id`
-* Description: Delete an existing film
-* Request body: _None_
+- HTTP method: `DELETE` URL: `/api/films/:id`
+- Description: Delete an existing film
+- Request body: _None_
 
-* Response: `200 OK` (success)
-* Response body: an empty object
+- Response: `200 OK` (success)
+- Response body: an empty object
 
-* Error responses:  `503 Service Unavailable` (database error)
+- Error responses: `503 Service Unavailable` (database error)
 
 #### Update favorite property of an existing film
 
-* HTTP method: `PUT`  URL: `/api/films/:id/favorite`
-* Description: Update favorite property value of an existing film
-* Request body: value of the favorite property
+- HTTP method: `PUT` URL: `/api/films/:id/favorite`
+- Description: Update favorite property value of an existing film
+- Request body: value of the favorite property
 
-``` JSON
+```JSON
 {
     "id": 2,
     "favorite": 1,
 }
 ```
 
-* Response: `200 OK` (success)
-* Response body: the object as represented in the database
+- Response: `200 OK` (success)
+- Response body: the object as represented in the database
 
-* Error responses: `503 Service Unavailable` (database error)
+- Error responses: `503 Service Unavailable` (database error)
 
 #### Update rating property of an existing film
 
-* HTTP method: `PUT`  URL: `/api/films/:id/rating`
-* Description: Update rating property value of an existing film
-* Request body: value of the rating property
+- HTTP method: `PUT` URL: `/api/films/:id/rating`
+- Description: Update rating property value of an existing film
+- Request body: value of the rating property
 
-``` JSON
+```JSON
 {
     "id": 2,
     "rating": 5,
 }
 ```
 
-* Response: `200 OK` (success)
-* Response body: the object as represented in the database
+- Response: `200 OK` (success)
+- Response body: the object as represented in the database
 
-* Error responses: `503 Service Unavailable` (database error)
+- Error responses: `503 Service Unavailable` (database error)
 
 ### User management
 
 #### Login
 
-* HTTP method: `POST`  URL: `/api/sessions`
-* Description: authenticate the user who is trying to login
-* Request body: credentials of the user who is trying to login
+- HTTP method: `POST` URL: `/api/sessions`
+- Description: authenticate the user who is trying to login
+- Request body: credentials of the user who is trying to login
 
-``` JSON
+```JSON
 {
     "username": "username",
     "password": "password"
 }
 ```
 
-* Response: `200 OK` (success)
-* Response body: authenticated user
+- Response: `200 OK` (success)
+- Response body: authenticated user
 
-``` JSON
+```JSON
 {
     "id": 1,
-    "username": "john.doe@polito.it", 
+    "username": "john.doe@polito.it",
     "name": "John"
 }
 ```
 
-* Error responses:  `500 Internal Server Error` (generic error), `401 Unauthorized User` (login failed)
+- Error responses: `500 Internal Server Error` (generic error), `401 Unauthorized User` (login failed)
 
 #### Check if user is logged in
 
-* HTTP method: `GET`  URL: `/api/sessions/current`
-* Description: check if current user is logged in and get her data
-* Request body: _None_
-* Response: `200 OK` (success)
+- HTTP method: `GET` URL: `/api/sessions/current`
+- Description: check if current user is logged in and get her data
+- Request body: _None_
+- Response: `200 OK` (success)
 
-* Response body: authenticated user
+- Response body: authenticated user
 
-``` JSON
+```JSON
 {
     "id": 1,
-    "username": "john.doe@polito.it", 
+    "username": "john.doe@polito.it",
     "name": "John"
 }
 ```
 
-* Error responses: `500 Internal Server Error` (generic error), `401 Unauthorized User` (user is not logged in)
+- Error responses: `500 Internal Server Error` (generic error), `401 Unauthorized User` (user is not logged in)
 
 #### Logout
 
-* HTTP method: `DELETE`  URL: `/api/sessions/current`
-* Description: logout current user
-* Request body: _None_
-* Response: `200 OK` (success)
+- HTTP method: `DELETE` URL: `/api/sessions/current`
+- Description: logout current user
+- Request body: _None_
+- Response: `200 OK` (success)
 
-* Response body: _None_
+- Response body: _None_
 
-* Error responses: `500 Internal Server Error` (generic error), `401 Unauthorized User` (user is not logged in)
+- Error responses: `500 Internal Server Error` (generic error), `401 Unauthorized User` (user is not logged in)
